@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>main() Feature</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header>
+        <h1><span class="code-accent">main()</span> Feature</h1>
+    </header>
+
+    <main class="container">
+        <section class="form-section">
+            <h2>log_movie()</h2>
+            <form id="blogForm">
+                <input type="text" id="postTitle" placeholder="Movie Title" required>
+                <input type="text" id="postPoster" placeholder="Movie Poster URL">
+                <input type="date" id="postDate" required>
+                <textarea id="postContent" placeholder="Write your review here..." rows="5" required></textarea>
+                <button type="submit">Publish Review</button>
+            </form>
+        </section>
+
+        <section class="posts-section">
+            <h2>recent_reviews[]</h2>
+            <div id="postsContainer"></div>
+        </section>
+    </main>
+
+    <script src="script.js"></script>
+</body>
+</html>
