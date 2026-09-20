@@ -1,0 +1,487 @@
+/* Colour Paletter */
+
+:root {
+    --background: #15171c;
+    --surface: #1e2128;
+    --surface-light: #252932;
+    --border: #343a46;
+    --text: #e6edf3;
+    --muted: #8b949e;
+
+    /* syntax-inspired colours */
+    --blue: #6cb6ff;
+    --purple: #c099ff;
+    --green: #8bd49c;
+    --yellow: #e5c07b;
+    --pink: #f38ba8;
+}
+
+/* Reset */
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+/* Main Page */
+
+body {
+    background-color: var(--background);
+    color: var(--text);
+
+    font-family: 
+        Inter, 
+        -apple-system,
+        BlinkMacSystemFont,
+        "Segoe UI",
+        sans-serif;
+
+    line-height: 1.7;
+    min-height: 100vh;
+}
+
+/* Header */
+
+header {
+    text-align: center;
+    padding: 55px 20px 45px;
+    background-color: #121419;
+    border-bottom: 1px solid var(--border);
+}
+
+header h1 {
+    font-family: 
+        "SFMono-Regular",
+        Consolas,
+        "Liberation Mono",
+        Menlo,
+        monospace;
+
+    font-size: clamp(2.3rem, 5vw, 4rem);
+    font-weight: 700;
+    letter-spacing: -2px;
+    color: var(--text);
+}
+
+.code-accent {
+    color: var(--purple);
+}
+
+.tagline {
+    margin-top: 8px;
+
+    font-family: 
+        "SFMono-Regular",
+        Consolas,
+        "Liberation Mono",
+        Menlo,
+        monospace;
+
+    color: var(--green);
+    font-size: 0.95rem;
+}
+
+/* Main Layout */
+
+.container {
+    width: 90%;
+    max-width: 950px;
+    margin: 45px auto;
+}
+
+/* Section Titles */
+
+.form-section h2,
+.posts-section h2 {
+    margin-bottom: 20px;
+
+    font-family: 
+        "SFMono-Regular",
+        Consolas,
+        "Liberation Mono",
+        monospace;
+
+    font-size: 1.25rem;
+    color: var(--blue);
+}
+
+.form-section h2::before {
+    content: "> ";
+    color: var(--pink);
+}
+
+.posts-section h2::before {
+    content: "> ";
+    color: var(--pink);
+}
+
+/* New Post Section */
+
+.form-section {
+    background-color: var(--surface);
+    padding: 28px;
+    margin-bottom: 55px;
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.2);
+}
+
+#blogForm {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+#postTitle,
+#postPoster,
+#postDate,
+#postContent {
+    width: 100%;
+    padding: 14px 15px;
+    background-color: var(--surface-light);
+    color: var(--text);
+    border: 1px solid var(--border);
+    border-radius: 7px;
+    font-family: inherit;
+    font-size: 1rem;
+    outline: none;
+    transition: 
+        border-color 0.2s ease,
+        box-shadow 0.2s ease;
+}
+
+#postDate {
+    color-scheme: dark;
+}
+
+#postDate::-webkit-calendar-picker-indicator {
+    cursor: pointer;
+}
+
+#postTitle::placeholder,
+#postPoster::placeholder,
+#postContent::placeholder {
+    color: var(--muted);
+}
+
+#postTitle:focus,
+#postPoster:focus,
+#postDate:focus,
+#postContent:focus {
+    border-color: var(--purple);
+    box-shadow: 0 0 0 3px rgba(192, 153, 255, 0.12);
+}
+
+#postContent {
+    resize: vertical;
+    min-height: 150px;
+}
+
+/* Publish Button */
+
+#blogForm button {
+    align-self: flex-start;
+    padding: 11px 20px;
+    border: 1px solid var(--purple);
+    border-radius: 7px;
+    background-color: transparent;
+    color: var(--purple);
+    
+    font-family: 
+        "SFMono-Regular",
+        Consolas,
+        "Liberation Mono",
+        Menlo,
+        monospace;
+    
+    font-size: 0.95rem;
+    cursor: pointer;
+    transition: 
+        background-color 0.2s ease,
+        color 0.2s ease,
+        transform 0.2s ease;
+}
+
+#blogForm button::before {
+    content: "run ";
+    color: var(--muted);
+}
+
+#blogForm button:hover {
+    background-color: var(--purple);
+    color: var(--background);
+    transform: translate(-1px);
+}
+
+#blogForm button:hover:before {
+    color: var(--background);
+}
+
+/* Posts Section */
+
+.posts-section {
+    margin-top: 20px;
+}
+
+#postsContainer > p {
+    color: var(--muted);
+
+    font-family: 
+        "SFMono-Regular",
+        Consolas,
+        "Liberation Mono",
+        Menlo,
+        monospace;
+}
+
+
+/* Movie Review Layout */
+
+.review-layout {
+    display: grid;
+    grid-template-columns: 180px 1fr;
+    gap: 28px;
+    align-items: start;
+}
+
+.movie-poster {
+    width: 100%;
+    aspect-ratio: 2/3;
+    object-fit: cover;
+    border-radius: 7px;
+    border: 1px solid var(--border);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.35);
+}
+
+.review-content {
+    min-width: 0;
+}
+
+.review-content h3 {
+    margin-bottom: 5px;
+}
+
+.review-content p {
+    margin-top: 20px;
+}
+
+/* Blog Cards */
+
+.blog-card {
+    position: relative;
+    background-color: var(--surface);
+    padding: 28px;
+    margin-bottom: 25px;
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.16);
+    transition: 
+        transform 0.2s ease,
+        border-color 0.2s ease;
+}
+
+.blog-card:hover {
+    transform: translate(-2px);
+    border-color: #4a5362;
+}
+
+.blog-card::before {
+    content: "const review = {";
+    display: block;
+    margin-bottom: 18px;
+    font-family: 
+        "SFMono-Regular",
+        Consolas,
+        "Liberation Mono",
+        Menlo,
+        monospace;
+
+    color: var(--purple);
+    font-size: 0.8rem;
+}
+
+.blog-card::after {
+    content: "};";
+    display: block;
+    margin-top: 22px;
+    font-family: 
+        "SFMono-Regular",
+        Consolas,
+        "Liberation Mono",
+        Menlo,
+        monospace;
+
+    color: var(--purple);
+    font-size: 0.8rem;
+}
+
+/* Post Title */
+
+.blog-card h3 {
+    margin-bottom: 5px;
+    font-family: 
+        "SFMono-Regular",
+        Consolas,
+        "Liberation Mono",
+        Menlo,
+        monospace;
+
+    font-size: 1.5rem;
+    color: var(--blue);
+}
+
+/* Date */
+
+.blog-card small {
+    display: block;
+    margin-bottom: 17px;
+    color: var(--green);
+    font-family: 
+        "SFMono-Regular",
+        Consolas,
+        "Liberation Mono",
+        Menlo,
+        monospace;
+
+    font-size: 0.8rem;
+}
+
+/* Review Text */
+
+.blog-card p {
+    color: #cdd5df;
+    line-height: 1.8;
+    margin-bottom: 20px;
+}
+
+
+/* Edit & Delete Buttons*/
+
+.edit-btn,
+.delete-btn {
+    padding: 7px 12px;
+    border-radius: 5px;
+    background: transparent;
+    font-family: 
+        "SFMono-Regular",
+        Consolas,
+        "Liberation Mono",
+        Menlo,
+        monospace;
+    font-size: 0.8rem;
+    cursor: pointer;
+    transition: 
+        background-color 0.2s ease,
+        color 0.2s ease;
+    appearance: none;
+}
+
+/* Edit */
+
+.edit-btn {
+    margin-right: 8px;
+    border: 1px solid rgba(108, 182, 255, 0.5);
+    color: var(--blue);
+}
+
+.edit-btn:hover {
+    background-color: var(--blue);
+    color: var(--background);
+}
+
+/* Delete Button */
+
+.delete-btn {
+    border: 1px solid rgba(243, 139, 168, 0.5);
+    color: var(--pink);
+}
+
+.delete-btn:hover {
+    background-color: var(--pink);
+    color: var(--background);
+}
+
+/* Links */
+
+a {
+    columns: var(--blue);
+    text-decoration: none;
+}
+
+a:hover {
+    color: var(--purple);
+}
+
+/* Tablet */
+
+@media (max-width: 768px) {
+
+    header {
+        padding: 40px 20px 35px;
+    }
+
+    .container {
+        width: 92%;
+        margin: 30px auto;
+    }
+
+    .form-section,
+    .blog-card {
+        padding: 22px;
+    }
+}
+
+/* Phones */
+
+@media (max-width: 480px) {
+
+    header {
+        padding: 32px 15px;
+    }
+
+    header h1 {
+        letter-spacing: -1px;
+    }
+
+    .tagline {
+        font-size: 0.8rem;
+    }
+
+    .container {
+        width: 94%;
+        margin-top: 25px;
+    }
+
+    .form-section {
+        padding: 18px;
+    }
+
+    .blog-card {
+        padding: 18px;
+    }
+
+    .blog-card h3 {
+        font-size: 1.25rem;
+    }
+
+    #postTitle,
+    #postPoster,
+    #postDate,
+    #postContent {
+        font-size: 16px;
+    }
+
+    #blogForm button {
+        width: 100%;
+    }
+
+    .review-layout {
+        grid-template-columns: 1fr;
+    }
+
+    .movie-poster {
+        width: min(220px, 75%);
+        justify-self: center;
+    }
+}
